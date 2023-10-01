@@ -7,5 +7,9 @@
       "username": "someuser",
       "password": "somepassword",
       "rejectUnauthorized": false
-  }
+  },
+  "hubs": [{
+    "ip": "1.2.3.4",
+    "name": "foo"
+  }]
 }

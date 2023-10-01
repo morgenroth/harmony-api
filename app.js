@@ -566,3 +566,14 @@ app.get('/hubs_for_index', function(req, res){
 if (enableHTTPserver) {
     app.listen(process.env.PORT || 8282)
 }
+
+// connect to static hubs
+if (config.hasOwnProperty("hubs")) {
+  for (i in config.hubs) {
+    hubInfo = config.hubs[i]
+    console.log('Static hub: ' + hubInfo.name + ' at ' + hubInfo.ip + '.')
+    harmony(hubInfo.ip).then(function(client){
+      startProcessing(parameterize(hubInfo.name), client)
+    })
+  }
+}
