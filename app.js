@@ -103,7 +103,7 @@ mqttClient.on('message', function (topic, message) {
   if (activityCommandMatches) {
     var hubSlug = activityCommandMatches[1]
     var activitySlug = activityCommandMatches[2]
-    var state = message.toString()
+    var state = message.toString().toLowerCase()
 
     activity = activityBySlugs(hubSlug, activitySlug)
     if (!activity) { return }
